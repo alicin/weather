@@ -1,0 +1,158 @@
+/* Empty. Add your own CSS if you like */
+
+@font-face {
+  font-family: "Hind Regular";
+  src: url("../fonts/HindSiliguri-Regular.ttf?v=2.0.1") format("truetype");
+  font-weight: normal;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "Hind Medium";
+  src: url("../fonts/HindSiliguri-Medium.ttf?v=2.0.1") format("truetype");
+  font-weight: normal;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "Hind SemiBold";
+  src: url("../fonts/HindSiliguri-SemiBold.ttf?v=2.0.1") format("truetype");
+  font-weight: normal;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "Hind Light";
+  src: url("../fonts/HindSiliguri-Light.ttf?v=2.0.1") format("truetype");
+  font-weight: normal;
+  font-style: normal; 
+}
+
+@font-face {
+  font-family: "Hind Bold";
+  src: url("../fonts/HindSiliguri-Bold.ttf?v=2.0.1") format("truetype");
+  font-weight: normal;
+  font-style: normal; 
+}
+
+.flight {
+  font-family: "Hind Light" !important;
+}
+.fregular {
+  font-family: "Hind Regular" !important;
+}
+.fmedium {
+  font-family: "Hind Medium" !important;
+}
+.fsemibold {
+  font-family: "Hind SemiBold" !important;
+}
+.fbold {
+  font-family: "Hind Bold" !important;
+}
+
+.valign {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.left{
+  float: left;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+ion-pane > .slider {
+  height: 100%;
+}
+
+ion-pane, ion-slide-box {
+  background: #F7F7F7 !important;
+}
+
+.paper {
+  padding: 15px;
+  background: #F7F7F7;
+  color: #555555;
+}
+
+.platform-ios .paper h1 {
+  top: 30px;
+}
+
+.paper h1 {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 16px;
+}
+.paper p {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.paper > .ion-navigate {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 20px;
+}
+
+ion-pane > .ion-ios-plus-empty {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 40px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.platform-ios .ion-ios-plus-empty {
+  top: 25px;
+}
+
+.spinner svg {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+
+.modal-settings .btn-close {
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  width: 60px;
+  line-height: 40px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.modal-settings .search {
+  -webkit-appearance: none;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #555 !important;
+  width: 90%;
+  margin: 50px 5%;
+}
+
+ion-option-button .ion-ios-trash-outline {
+  font-size: 28px;
+  width: 100%;
+  text-align: center;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/moment/min/moment.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="weather" ng-controller="AppController" ng-cloak>
+
+    <ion-pane>
+      <ion-spinner icon="ripple" ng-if="!results"></ion-spinner>
+
+      <ion-slide-box on-slide-changed="getForecast($index)" ng-if="results && !settings">
+
+        <ion-slide class="paper">
+          <ion-spinner ng-if="!current.loaded" icon="ripple"></ion-spinner>
+          <div ng-style="{opacity: current.loaded ? 1 : 0 }" style="transition: all 1s; height: 100%;" >
+            <h1 class="flight">{{ current.name }}, {{ current.sys.country }}<br>{{ moment }}
+            </h1>
+            <div class="content valign">
+              <p class="flight">It's <span ng-style="{'color': current.settings.color}" class="fmedium">{{ current.main.temp | round }}&deg;</span> {{ channelitem.condition.text }} outside.<br>{{ current.weather[0].description }} <small ng-if="false">({{ current.weather[0].main }})</small></p>
+              maybe you should bring
+              
+              <span ng-repeat="item in current.settings.items" class="fsemibold">
+                <span ng-if="$last">{{ 'and ' + item + '.' }}</span>
+                <span ng-if="!$last && $index < current.settings.items.length - 2">{{  item + ', ' }}</span>
+                <span ng-if="!$last && $index == current.settings.items.length - 2">{{  item + ' ' }}</span>
+              </span>
+            </div>
+          </div>
+          <i class="ion-navigate"></i>
+        </ion-slide>
+
+        <ion-slide ng-repeat="location in locations" class="paper">
+          <ion-spinner ng-if="!location.loaded" icon="ripple"></ion-spinner>
+          <div ng-style="{opacity: location.loaded ? 1 : 0 }" style="transition: all 1s; height: 100%;" >
+            <h1 class="flight">{{ location.name }}, {{ location.sys.country }}<br>{{ moment }}
+            </h1>
+            <div class="content valign">
+              <p class="flight">It's <span ng-style="{'color': location.settings.color}" class="fmedium">{{ location.main.temp | round }}&deg;</span> {{ channelitem.condition.text }} outside.<br>{{ location.weather[0].description }} <small ng-if="false">({{ location.weather[0].main }})</small></p>
+              maybe you should bring
+              
+              <span ng-repeat="item in location.settings.items" class="fsemibold">
+                <span ng-if="$last">{{ 'and ' + item + '.' }}</span>
+                <span ng-if="!$last && $index < location.settings.items.length - 2">{{  item + ', ' }}</span>
+                <span ng-if="!$last && $index == location.settings.items.length - 2">{{  item + ' ' }}</span>
+              </span>
+            </div>
+          </div>
+        </ion-slide>
+
+      </ion-slide-box>
+      <i class="ion-ios-plus-empty" ng-click="showSettings()"></i>
+    </ion-pane>
+    
+  </body>
+</html>

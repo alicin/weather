@@ -1,0 +1,24 @@
+<div class="modal modal-settings" ng-controller="SettingsCtrl">
+
+  <div>
+    <form ng-submit="addCity(city)" >
+      <input type="search" placeholder="Enter the city name please..."  class="search"
+      ng-model="city">
+      <button type="submit" hidden></button>
+    </form>
+
+    <ion-list>
+      <ion-item ng-repeat="city in cities">
+        {{ city.title }}
+        <ion-option-button class="button-info"
+        ng-click="deleteCity($index)">
+        <i class="ion-ios-trash-outline assertive"></i>
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </div>
+  <a ng-click="closeSettings()" class="btn-close">
+    close
+  </a>
+
+</div>
